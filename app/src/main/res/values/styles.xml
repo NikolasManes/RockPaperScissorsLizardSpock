@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="TittleStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="ButtonStyle">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_width">140dp</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GameLargeText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">55sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GameSmallText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GameButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">55sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

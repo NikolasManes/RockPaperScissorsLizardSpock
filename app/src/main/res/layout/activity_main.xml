@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/holo_blue_dark"
+    tools:context="com.nikolas.rock_paper_scissors_lizard_spock.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            style="@style/TittleStyle"
+            android:id="@+id/tittle1"
+            android:layout_centerInParent="true"
+            android:text="Rock Paper Scissors" />
+
+        <TextView
+            style="@style/TittleStyle"
+            android:id="@+id/tittle2"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:text="Lizard Spock" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/main_screen" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/HighScoresButton"
+            style="@style/ButtonStyle"
+            android:layout_centerInParent="true"
+            android:text="HighScores"
+            />
+
+        <Button
+            android:id="@+id/StartGameButton"
+            style="@style/ButtonStyle"
+            android:layout_above="@id/HighScoresButton"
+            android:layout_centerHorizontal="true"
+            android:text="New Game"
+            />
+
+
+        <Button
+            android:id="@+id/QuitButton"
+            style="@style/ButtonStyle"
+            android:layout_below="@id/HighScoresButton"
+            android:layout_centerHorizontal="true"
+            android:text="Quit"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
