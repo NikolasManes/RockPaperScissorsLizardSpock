@@ -87,9 +87,10 @@
             android:layout_height="wrap_content"
             android:src="@drawable/prev"/>
         <ViewFlipper
+            android:id="@+id/view_flipper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"            >
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -100,7 +101,7 @@
                     android:id="@+id/rock_img_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_1_rock" />
+                    android:src="@drawable/icon_1_rock"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -110,7 +111,7 @@
                     android:id="@+id/paper_img_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_2_paper" />
+                    android:src="@drawable/icon_2_paper"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -121,7 +122,7 @@
                     android:id="@+id/scissors_img_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_3_scissors" />
+                    android:src="@drawable/icon_3_scissors"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -132,7 +133,7 @@
                     android:id="@+id/lizard_img_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_4_lizard" />
+                    android:src="@drawable/icon_4_lizard"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -143,7 +144,7 @@
                     android:id="@+id/spock_img_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_5_spock" />
+                    android:src="@drawable/icon_5_spock"/>
             </RelativeLayout>
         </ViewFlipper>
         <ImageView
