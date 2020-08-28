@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.transition.Scene;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
@@ -39,6 +41,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private ViewFlipper viewFlipper;
 
+    private Animation rotation, zoom;
+
+    private View computerChoiceBoard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +67,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         prevView = findViewById(R.id.prev_button);
         nextView = findViewById(R.id.next_button);
+
+        computerChoiceBoard = findViewById(R.id.computer_choice_board);
+
+        rotation = AnimationUtils.loadAnimation(this, R.anim.rotation);
+        zoom = AnimationUtils.loadAnimation(this, R.anim.zoom_in_out);
 
         rockViewHuman.setOnClickListener(this);
         paperViewHuman.setOnClickListener(this);
@@ -112,7 +123,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void runAnimation(){
-
+        computerChoiceBoard.startAnimation(rotation);
+        rockViewComputer.startAnimation(zoom);
+        paperViewComputer.startAnimation(zoom);
+        scissorsViewComputer.startAnimation(zoom);
+        lizardViewComputer.startAnimation(zoom);
+        spockViewComputer.startAnimation(zoom);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
