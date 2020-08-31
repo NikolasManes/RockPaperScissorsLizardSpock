@@ -29,8 +29,16 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:fontFamily">casual</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">55sp</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GameMediumText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
     <style name="GameSmallText">
         <item name="android:layout_height">wrap_content</item>
@@ -38,7 +46,7 @@
         <item name="android:fontFamily">casual</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
     <style name="GameButton">
         <item name="android:layout_height">wrap_content</item>

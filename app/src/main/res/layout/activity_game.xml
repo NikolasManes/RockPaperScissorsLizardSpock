@@ -1,159 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_dark"
-    android:orientation="vertical"
     tools:context=".GameActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:layout_gravity="center"
-        app:layout_constraintDimensionRatio="1:1"
-        android:id="@+id/computer_choice_board">
-
-        <ImageView
-            android:id="@+id/center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/rock_img_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_1_rock"
-            app:layout_constraintCircle="@id/center"
-            app:layout_constraintCircleAngle="0"
-            app:layout_constraintCircleRadius="110dp"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/paper_img_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_2_paper"
-            app:layout_constraintCircle="@id/center"
-            app:layout_constraintCircleAngle="72"
-            app:layout_constraintCircleRadius="110dp"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/scissors_img_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_3_scissors"
-            app:layout_constraintCircle="@id/center"
-            app:layout_constraintCircleAngle="144"
-            app:layout_constraintCircleRadius="110dp"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/lizard_img_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_4_lizard"
-            app:layout_constraintCircle="@id/center"
-            app:layout_constraintCircleAngle="216"
-            app:layout_constraintCircleRadius="110dp"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/spock_img_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_5_spock"
-            app:layout_constraintCircle="@id/center"
-            app:layout_constraintCircleAngle="288"
-            app:layout_constraintCircleRadius="110dp"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <ImageView
-            android:id="@+id/prev_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/prev"/>
-        <ViewFlipper
-            android:id="@+id/view_flipper"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"            >
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-
-                <ImageView
-                    android:id="@+id/rock_img_2"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/result_view">
+        <TextView
+            style="@style/GameLargeText"
+            android:id="@+id/result_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:text="Result"
+            android:gravity="center">
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/GameSmallText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_1_rock"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
+                    android:layout_weight="2"
+                    android:text="PLAYER:"/>
                 <ImageView
-                    android:id="@+id/paper_img_2"
+                    android:id="@+id/player_move"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/icon_2_paper"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/scissors_img_2"
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/GameSmallText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_3_scissors"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
+                    android:layout_weight="1"
+                    android:text="CPU:"/>
                 <ImageView
-                    android:id="@+id/lizard_img_2"
+                    android:id="@+id/cpu_move"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_4_lizard"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/spock_img_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_5_spock"/>
-            </RelativeLayout>
-        </ViewFlipper>
-        <ImageView
-            android:id="@+id/next_button"
-            android:layout_width="wrap_content"
+                    android:src="@drawable/icon_2_paper"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            style="@style/GameMediumText"
+            android:id="@+id/action_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_margin="20dp"
+            android:text="Action"
+            android:gravity="center">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/game_view"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/next"/>
+            android:gravity="center"
+            android:layout_margin="4dp"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/GameSmallText"
+                android:id="@+id/lives_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:layout_weight="1"
+                android:text="lives:"
+                android:layout_gravity="start" />
+            <TextView
+                style="@style/GameSmallText"
+                android:id="@+id/max_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:text="max:"/>
+
+        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:layout_gravity="center"
+            app:layout_constraintDimensionRatio="1:1"
+            android:id="@+id/computer_choice_board">
+
+            <ImageView
+                android:id="@+id/center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/rock_img_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_1_rock"
+                app:layout_constraintCircle="@id/center"
+                app:layout_constraintCircleAngle="0"
+                app:layout_constraintCircleRadius="110dp"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/paper_img_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_2_paper"
+                app:layout_constraintCircle="@id/center"
+                app:layout_constraintCircleAngle="72"
+                app:layout_constraintCircleRadius="110dp"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/scissors_img_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_3_scissors"
+                app:layout_constraintCircle="@id/center"
+                app:layout_constraintCircleAngle="144"
+                app:layout_constraintCircleRadius="110dp"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/lizard_img_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_4_lizard"
+                app:layout_constraintCircle="@id/center"
+                app:layout_constraintCircleAngle="216"
+                app:layout_constraintCircleRadius="110dp"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/spock_img_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_5_spock"
+                app:layout_constraintCircle="@id/center"
+                app:layout_constraintCircleAngle="288"
+                app:layout_constraintCircleRadius="110dp"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/prev_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/prev"/>
+            <ViewFlipper
+                android:id="@+id/view_flipper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"            >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:id="@+id/rock_img_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_1_rock"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/paper_img_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_2_paper"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/scissors_img_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_3_scissors"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/lizard_img_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_4_lizard"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/spock_img_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_5_spock"/>
+                </RelativeLayout>
+            </ViewFlipper>
+            <ImageView
+                android:id="@+id/next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/next"/>
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+
+
+
+
+</RelativeLayout>
