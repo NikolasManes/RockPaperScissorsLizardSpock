@@ -369,6 +369,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         result = GameResult.LOSE;
                         break;
                     case SCISSORS:
+                        toastInfo = "Spock smashes Scissors!!!";
                         result = GameResult.WIN;
                         break;
                     case LIZARD:
