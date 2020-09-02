@@ -2,7 +2,6 @@ package com.nikolas.rock_paper_scissors_lizard_spock;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 import java.util.Random;
 
@@ -23,7 +21,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private int lives;
     private int max;
+    private int score;
     private int winsInRow;
+
+    public static int HIGH_SCORE = 0;
+    public static int TOP_LEVEL = 1;
 
     private PlayerAction humanAction;
     private PlayerAction computerAction;
@@ -60,6 +62,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private Animation zoom;
     private Animation fadeOut;
     private Animation fadeIn;
+    private Animation getReady;
+    private Animation nextMove;
 
     private String animationRunning = "";
 
@@ -72,7 +76,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        // Initialize "buttons" etc
+        // Initialize buttons animations and views
         viewFlipper = findViewById(R.id.view_flipper);
 
         rockViewComputer = findViewById(R.id.rock_img_1);
@@ -109,7 +113,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         zoom = AnimationUtils.loadAnimation(this, R.anim.zoom_in_out);
         fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
         fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        getReady = AnimationUtils.loadAnimation(this, R.anim.get_ready);
+        nextMove = AnimationUtils.loadAnimation(this, R.anim.next_move);
 
+        // Animation listener attached to the animations those needs monitoring
         rotation.setAnimationListener(this);
         fadeOut.setAnimationListener(this);
         fadeIn.setAnimationListener(this);
@@ -132,41 +139,42 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         winsInRow = 0;
         init();
     }
-
+    // The next 2 methods are the action board
     @Override
     public void onAnimationStart(Animation animation) {
         if (animation.equals(rotation)){
-            animationRunning = "beginning";
+            animationRunning = "start";
         } else if (animation.equals(fadeIn)){
-            animationRunning = "ending";
+            animationRunning = "end";
         } else if (animation.equals(fadeOut)){
-            animationRunning = "middle";
+            animationRunning = "continue";
         }
         Log.i(GameActivity.class.getSimpleName(), animationRunning);
     }
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onAnimationEnd(Animation animation) {
         Intent g_o = new Intent(this, GameOverActivity.class);
         switch (animationRunning){
-            case "beginning":
-                continueGame();
+            case "start":
+                resumeBattle();
                 break;
-            case "middle":
+            case "continue":
                 showResult();
                 break;
-            case "ending":
+            case "end":
                 if (winsInRow == 3){
                     winsInRow = 0;
                     lives += 1;
                 }
-                if (lives == 0){
-                    Toast.makeText(this, "Game Over!!!", Toast.LENGTH_LONG).show();
+                if (lives == 0){    // GAME OVER
+                    HIGH_SCORE = score;
+                    TOP_LEVEL = max;
                     startActivity(g_o);
                     finish();
                 }
                 init();
+                gameView.startAnimation(getReady);
                 break;
         }
     }
@@ -178,8 +186,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         livesText.setText("lives:" + lives);
         maxText.setText("max:" + max);
 
-        gameView.setVisibility(View.VISIBLE);
         resultBoardView.setVisibility(View.GONE);
+        gameView.setVisibility(View.VISIBLE);
 
         rockViewComputer.setBackgroundResource(0);
         paperViewComputer.setBackgroundResource(0);
@@ -189,12 +197,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         rockViewHuman.setBackgroundResource(0);
         paperViewHuman.setBackgroundResource(0);
-        spockViewHuman.setBackgroundResource(0);
+        scissorsViewHuman.setBackgroundResource(0);
         lizardViewHuman.setBackgroundResource(0);
         spockViewHuman.setBackgroundResource(0);
 
     }
-
+    // When the player chose an action and click it the game starts
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View view) {
@@ -209,39 +217,56 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.rock_img_2:
                 humanAction = PlayerAction.ROCK;
                 rockViewHuman.setBackground(getDrawable(R.drawable.circle_cyan));
-                playGame();
+                startBattle();
                 break;
             case R.id.paper_img_2:
                 humanAction = PlayerAction.PAPER;
                 paperViewHuman.setBackground(getDrawable(R.drawable.circle_cyan));
-                playGame();
+                startBattle();
                 break;
             case R.id.scissors_img_2:
                 humanAction = PlayerAction.SCISSORS;
                 scissorsViewHuman.setBackground(getDrawable(R.drawable.circle_cyan));
-                playGame();
+                startBattle();
                 break;
             case R.id.lizard_img_2:
                 humanAction = PlayerAction.LIZARD;
                 lizardViewHuman.setBackground(getDrawable(R.drawable.circle_cyan));
-                playGame();
+                startBattle();
                 break;
             case R.id.spock_img_2:
                 humanAction = PlayerAction.SPOCK;
                 spockViewHuman.setBackground(getDrawable(R.drawable.circle_cyan));
-                playGame();
+                startBattle();
                 break;
         }
     }
-
+    // When player chose an action animation starting...
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void runAnimation(){
+    private void startBattle(){
         computerChoiceBoard.startAnimation(rotation);
         rockViewComputer.startAnimation(zoom);
         paperViewComputer.startAnimation(zoom);
         scissorsViewComputer.startAnimation(zoom);
         lizardViewComputer.startAnimation(zoom);
         spockViewComputer.startAnimation(zoom);
+    }
+    // Getting things ready on the result screen
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void resumeBattle() {
+        computerChoice();
+        setResult();
+        resultTextView.setText(result.toString());
+        resultActionView.setText(toastInfo);
+        setImages();
+        gameView.startAnimation(fadeOut);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void showResult() {
+        gameView.setVisibility(View.GONE);
+        resultBoardView.setVisibility(View.VISIBLE);
+        resultBoardView.startAnimation(fadeIn);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -270,7 +295,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
+    // Get the result of each turn
     private void setResult(){
         if (humanAction.equals(computerAction)){
             toastInfo = " . . . ";
@@ -381,18 +406,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void playGame(){
-        runAnimation();
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void continueGame() {
-        computerChoice();
-        setResult();
-        endTurn();
-    }
-
+    // Set the images on the result screen
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setImages(){
         switch (result){
@@ -400,6 +414,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 playerMove.setBackground(getDrawable(R.drawable.circle_green));
                 cpuMove.setBackground(getDrawable(R.drawable.circle_red));
                 max += 1;
+                score = score + max + 10;
                 winsInRow += 1;
                 break;
             case LOSE:
@@ -450,18 +465,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void endTurn(){
-        resultTextView.setText(result.toString());
-        resultActionView.setText(toastInfo);
-        setImages();
-        gameView.startAnimation(fadeOut);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void showResult() {
-        gameView.setVisibility(View.GONE);
-        resultBoardView.setVisibility(View.VISIBLE);
-        resultBoardView.startAnimation(fadeIn);
+    @Override
+    public void onBackPressed(){
     }
 }
