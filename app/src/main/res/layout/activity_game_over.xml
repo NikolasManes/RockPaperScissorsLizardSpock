@@ -1,18 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    android:gravity="center"
-    tools:context=".GameOverActivity">
+    android:orientation="vertical"
+    tools:context="com.nikolas.rock_paper_scissors_lizard_spock.GameOverActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/GameLargeText"
-        android:text="Game Over"></TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
+        <TextView
+            android:id="@+id/game_over_title"
+            style="@style/GameLargeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Game Over" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/GameSmallText"
+            android:layout_centerHorizontal="true"
+            android:text="max level: 000" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/PlayerName"
+            style="@style/GameSmallText"
+            android:layout_centerHorizontal="true"
+            android:text="Please enter your name:"/>
+
+        <EditText
+            android:id="@+id/PlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/GameSmallText"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:inputType="text" />
+        <Button
+            android:id="@+id/okButton"
+            style="@style/ButtonStyle"
+            android:layout_below="@+id/PlayerName"
+            android:layout_centerHorizontal="true"
+            android:text="OK" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/restart"
+            style="@style/ButtonStyle"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="30dp"
+            android:layout_marginBottom="50dp"
+            android:text="Restart" />
+        <Button
+            android:id="@+id/mainMenu"
+            style="@style/ButtonStyle"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="30dp"
+            android:text="Main Menu" />
+    </RelativeLayout>
+</LinearLayout>

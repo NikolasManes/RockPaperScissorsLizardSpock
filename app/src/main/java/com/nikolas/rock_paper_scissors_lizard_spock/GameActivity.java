@@ -64,6 +64,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private Animation fadeIn;
     private Animation getReady;
     private Animation nextMove;
+    private boolean clickEnable;
 
     private String animationRunning = "";
 
@@ -137,6 +138,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         lives = 3;
         max = 0;
         winsInRow = 0;
+        clickEnable = true;
         init();
     }
     // The next 2 methods are the action board
@@ -175,6 +177,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 init();
                 gameView.startAnimation(getReady);
+                clickEnable = true;
                 break;
         }
     }
@@ -206,6 +209,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View view) {
+        if (!clickEnable){
+            return;
+        }
         init();
         switch (view.getId()){
             case R.id.prev_button:
@@ -244,6 +250,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     // When player chose an action animation starting...
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void startBattle(){
+        clickEnable = false;
         computerChoiceBoard.startAnimation(rotation);
         rockViewComputer.startAnimation(zoom);
         paperViewComputer.startAnimation(zoom);
@@ -431,36 +438,36 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
         switch (humanAction){
             case ROCK:
-                playerMove.setImageDrawable(getDrawable(R.drawable.icon_1_rock));
+                playerMove.setImageDrawable(getDrawable(R.drawable.rock_img));
                 break;
             case PAPER:
-                playerMove.setImageDrawable(getDrawable(R.drawable.icon_2_paper));
+                playerMove.setImageDrawable(getDrawable(R.drawable.paper_img));
                 break;
             case SCISSORS:
-                playerMove.setImageDrawable(getDrawable(R.drawable.icon_3_scissors));
+                playerMove.setImageDrawable(getDrawable(R.drawable.scissors_img));
                 break;
             case LIZARD:
-                playerMove.setImageDrawable(getDrawable(R.drawable.icon_4_lizard));
+                playerMove.setImageDrawable(getDrawable(R.drawable.lizard_img));
                 break;
             case SPOCK:
-                playerMove.setImageDrawable(getDrawable(R.drawable.icon_5_spock));
+                playerMove.setImageDrawable(getDrawable(R.drawable.spock_img));
                 break;
         }
         switch (computerAction){
             case ROCK:
-                cpuMove.setImageDrawable(getDrawable(R.drawable.icon_1_rock));
+                cpuMove.setImageDrawable(getDrawable(R.drawable.rock_img));
                 break;
             case PAPER:
-                cpuMove.setImageDrawable(getDrawable(R.drawable.icon_2_paper));
+                cpuMove.setImageDrawable(getDrawable(R.drawable.paper_img));
                 break;
             case SCISSORS:
-                cpuMove.setImageDrawable(getDrawable(R.drawable.icon_3_scissors));
+                cpuMove.setImageDrawable(getDrawable(R.drawable.scissors_img));
                 break;
             case LIZARD:
-                cpuMove.setImageDrawable(getDrawable(R.drawable.icon_4_lizard));
+                cpuMove.setImageDrawable(getDrawable(R.drawable.lizard_img));
                 break;
             case SPOCK:
-                cpuMove.setImageDrawable(getDrawable(R.drawable.icon_5_spock));
+                cpuMove.setImageDrawable(getDrawable(R.drawable.spock_img));
                 break;
         }
     }

@@ -40,10 +40,9 @@
                     android:layout_weight="2"
                     android:text="PLAYER:"/>
                 <ImageView
+                    style="@style/ImageStyle"
                     android:id="@+id/player_move"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_2_paper"/>
+                    android:src="@drawable/paper_img"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
@@ -58,10 +57,9 @@
                     android:layout_weight="1"
                     android:text="CPU:"/>
                 <ImageView
+                    style="@style/ImageStyle"
                     android:id="@+id/cpu_move"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_2_paper"/>
+                    android:src="@drawable/paper_img"/>
             </LinearLayout>
         </LinearLayout>
         <TextView
@@ -125,9 +123,8 @@
 
             <ImageView
                 android:id="@+id/rock_img_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_1_rock"
+                style="@style/ImageStyle"
+                android:src="@drawable/rock_img"
                 app:layout_constraintCircle="@id/center"
                 app:layout_constraintCircleAngle="0"
                 app:layout_constraintCircleRadius="110dp"
@@ -135,9 +132,8 @@
 
             <ImageView
                 android:id="@+id/paper_img_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_2_paper"
+                style="@style/ImageStyle"
+                android:src="@drawable/paper_img"
                 app:layout_constraintCircle="@id/center"
                 app:layout_constraintCircleAngle="72"
                 app:layout_constraintCircleRadius="110dp"
@@ -145,9 +141,8 @@
 
             <ImageView
                 android:id="@+id/scissors_img_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_3_scissors"
+                style="@style/ImageStyle"
+                android:src="@drawable/scissors_img"
                 app:layout_constraintCircle="@id/center"
                 app:layout_constraintCircleAngle="144"
                 app:layout_constraintCircleRadius="110dp"
@@ -155,19 +150,17 @@
 
             <ImageView
                 android:id="@+id/lizard_img_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_4_lizard"
+                style="@style/ImageStyle"
+                android:src="@drawable/lizard_img"
                 app:layout_constraintCircle="@id/center"
                 app:layout_constraintCircleAngle="216"
                 app:layout_constraintCircleRadius="110dp"
                 tools:ignore="MissingConstraints" />
 
             <ImageView
+                style="@style/ImageStyle"
                 android:id="@+id/spock_img_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_5_spock"
+                android:src="@drawable/spock_img"
                 app:layout_constraintCircle="@id/center"
                 app:layout_constraintCircleAngle="288"
                 app:layout_constraintCircleRadius="110dp"
@@ -182,10 +175,9 @@
             android:orientation="horizontal"
             android:gravity="center">
             <ImageView
+                style="@style/ImageStyle"
                 android:id="@+id/prev_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/prev"/>
+                android:src="@drawable/previous_img"/>
             <ViewFlipper
                 android:id="@+id/view_flipper"
                 android:layout_width="wrap_content"
@@ -198,20 +190,18 @@
                     android:layout_gravity="center">
 
                     <ImageView
+                        style="@style/ImageStyle"
                         android:id="@+id/rock_img_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_1_rock"/>
+                        android:src="@drawable/rock_img"/>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        style="@style/ImageStyle"
                         android:id="@+id/paper_img_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_2_paper"/>
+                        android:src="@drawable/paper_img"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -219,10 +209,9 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        style="@style/ImageStyle"
                         android:id="@+id/scissors_img_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_3_scissors"/>
+                        android:src="@drawable/scissors_img"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -230,10 +219,9 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        style="@style/ImageStyle"
                         android:id="@+id/lizard_img_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_4_lizard"/>
+                        android:src="@drawable/lizard_img"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -241,17 +229,15 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        style="@style/ImageStyle"
                         android:id="@+id/spock_img_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_5_spock"/>
+                        android:src="@drawable/spock_img"/>
                 </RelativeLayout>
             </ViewFlipper>
             <ImageView
+                style="@style/ImageStyle"
                 android:id="@+id/next_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/next"/>
+                android:src="@drawable/next_img"/>
         </LinearLayout>
     </LinearLayout>
 

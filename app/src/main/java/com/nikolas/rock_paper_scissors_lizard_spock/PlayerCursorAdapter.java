@@ -2,7 +2,6 @@ package com.nikolas.rock_paper_scissors_lizard_spock;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,13 +25,10 @@ public class PlayerCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View listItemView, Context context, Cursor cursor) {
 
-        Typeface type = Typeface.createFromAsset(context.getAssets(),"fonts/EraserDust.ttf");
 
         // Field of the listItemView
         TextView nameText = (TextView) listItemView.findViewById(R.id.name_text);
         TextView scoreText = (TextView)listItemView.findViewById(R.id.score_text);
-        nameText.setTypeface(type);
-        scoreText.setTypeface(type);
 
         // Get pet properties from the database
         String playerName = cursor.getString(cursor.getColumnIndex(PlayerEntry.COLUMN_PLAYER_NAME));

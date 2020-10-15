@@ -14,7 +14,7 @@ public class PlayerContract {
 
     /***** Constant Values We Need To Create The Content URI *****/
     // Content Authority is the complete package name is unique on the device
-    public static final String CONTENT_AUTHORITY = "com.example.nikolas.mathbraincooking";
+    public static final String CONTENT_AUTHORITY = "com.nikolas.rock_paper_scissors_lizard_spock";
     // The URI the apps use to contact the content provider
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     // Possible path to append the URI

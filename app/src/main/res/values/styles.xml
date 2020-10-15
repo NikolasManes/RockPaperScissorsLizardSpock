@@ -48,6 +48,10 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
+    <style name="ImageStyle">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
     <style name="GameButton">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">100dp</item>

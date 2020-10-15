@@ -28,10 +28,7 @@ public class HighScoresActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_scores);
 
-
-        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/EraserDust.ttf");
         TextView scores_title = (TextView)findViewById(R.id.top_scores);
-        scores_title.setTypeface(type);
 
         ListView HighScoresList = (ListView)findViewById(R.id.highScoreList);
 
@@ -41,7 +38,6 @@ public class HighScoresActivity extends AppCompatActivity implements View.OnClic
 
         final Button MainMenuButton = (Button)findViewById(R.id.MainMenuButton);
         MainMenuButton.setOnClickListener(this);
-        MainMenuButton.setTypeface(type);
 
         // Initialize Loader
         getLoaderManager().initLoader(PLAYER_LOADER, null, this);
