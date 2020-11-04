@@ -14,4 +14,5 @@ The player has 3 lives; if he wins 3 times in a row he/she gets an additional li
 The score depends on how many times a player wins and how far he has reached.
 
 App on Google Play:
+
 https://play.google.com/store/apps/details?id=com.nikolas.rock_paper_scissors_lizard_spock
